@@ -1,0 +1,93 @@
+# patient specific variables
+patient_var:
+  breath_In: 1500 #[ms]
+  breath_Out: 1500 #[ms]
+  pause: 1000 #[ms]
+  move_distance: 12 #[mm]
+  frequency: 0.78539816
+  amplitude: 12
+  shift: 1.965
+  mod_ratio: 0.5
+  alpha: 2
+  beta: 1.5
+  carrier_freq: 0.01
+  modulation_freq: 0.2
+
+# variables of the Proton therapy scanner
+scanner_var:
+  table_move_mm: 6 #[mm]
+  table_move: 1000 #[ms]
+  table_settle: 2000 #[ms]
+  scanner_X: 3 #[ms]
+  scanner_Y: 3 #[ms]
+  energy_change: 80 #[ms]
+  dwell_time: 15 #[ms] (2, 10, 15, 25, 50)
+  correction_threshold: 0.5 #[mm]
+  grid_size: 3 #[mm]
+
+# phantom general variables
+phantom:
+  scene_size:
+    x: 100 #[mm]
+    y: 100 #[mm]
+    z: 100 #[mm]
+  scene_mm:
+    x:
+    - 0 #[mm]
+    - 99 #[mm]
+    y:
+    - 0 #[mm]
+    - 99 #[mm]
+    z:
+    - 0 #[mm]
+    - 99 #[mm]
+  scene_size_wed:
+    x: 200 #[mm]
+    y: 200 #[mm]
+    z: 200 #[mm]
+
+# Phantom variables
+Hundsfield:
+  HU_AIR: -1000 # [Hu]
+  HU_BONE: 400 # [Hu]
+  HU_Liver: 65 # [Hu]
+  HU_Liver_Tumor: 50 # [Hu]
+  HU_WATER: 0 # [Hu]
+
+Boundaries:
+  x_bound_left: 10 #[mm]
+  x_bound_right: 90 #[mm]
+  y_bound_back: 90 #[mm]
+  y_bound_front: 10 #[mm]
+  z_bound: 35 #[mm]
+
+Sphere:
+  Center:
+  - 50 #[mm]
+  - 50 #[mm]
+  - 60 #[mm]
+  Radius: 15 #[mm]
+
+Triangle:
+  Point1:
+  - 10 #[mm]
+  - 5 #[mm]
+  - 10 #[mm]
+  Point2:
+  - 90 #[mm]
+  - 35 #[mm]
+  - 90 #[mm]
+
+Treatment:
+  Prescribed_Gy: 10 # [Gy]
+  V95_Target: 98 # [%]
+  D95_Target: 10 # [Gy]
+  D_max_Target: 120 # [%]
+  D_max_Healthy_Target: 7 # [Gy]
+
+Training:
+  Cuda: 0
+  Epoch: 40000
+  Leraning_Rate: 0.005
+  Weight_W: 100
+  Loss_W: 0.5
