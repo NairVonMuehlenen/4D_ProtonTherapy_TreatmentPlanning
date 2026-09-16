@@ -37,21 +37,23 @@ class Generator:
 
         # Path to the folder containing the tensor files
         folder_path = pathing
-
-        # List to store all the tensors
         beam_list = []
 
-        # Loop through the folder and load all tensor files
-        for file_name in os.listdir(folder_path):
-            if file_name.endswith('.joblib'):  # Ensure it's a .pt file (PyTorch tensor file)
-                file_path = os.path.join(folder_path, file_name)
-                beams = joblib.load(file_path)
-                beam_list += beams
+        files = [f for f in os.listdir(folder_path) if f.startswith("BeamList") and f.endswith(".joblib")]
 
-        # Save the list of tensors as a joblib file
+        # sort numerically by the number in BeamList{i}
+        files.sort(key=lambda x: int(re.search(r'BeamList(\d+)', x).group(1)))
+
+        # Loop through the folder and load all tensor files
+        for file_name in enumerate(files):
+            file_path = os.path.join(folder_path, file_name[1])
+            beams = joblib.load(file_path)
+            beam_list += beams
+
+        #save the list of tensors as a joblib file
         joblib_file = pathing + '/Final_List.joblib'
         joblib.dump(beam_list, joblib_file)
-        #save sparse Rep
+        # Save sparse Rep
         beams = [tensor.to(self.device) for tensor in beam_list]
         sparse_beams = self.one_D_sparse(beams)
         torch.save(sparse_beams, (pathing + "/Spars_Beam.pt"))
