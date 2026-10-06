@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+
+message: "If you use this software in academic work, please cite this software repository and the associated publication when available."
+
+authors:
+- family-names: "von Mühlenen"
+  given-names: "Nair Nan"
+  orcid: "https://orcid.org/0009-0002-5122-5480"
+- family-names: "Bieder"
+  given-names: "Florentin"
+  orcid: "https://orcid.org/0000-0001-9558-0623"
+- family-names: "Cattin"
+  given-names: "Philippe Claude"
+  orcid: "https://orcid.org/0000-0001-8785-2713"
+
+title: "4D_ProtonTherapy_TreatmentPlanning"
+
+version: 1.0.0
+
+doi: 10.5281/zenodo.1234
+
+date-released: 2026-10-05
+
+url: "https://github.com/NairVonMuehlenen/4D_ProtonTherapy_TreatmentPlanning"
